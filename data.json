@@ -1,0 +1,31 @@
+{
+    "name": "Suriya V",
+    "role": "Software Developer",
+    "experience": "4+",
+    "totalProjects": 5,
+    "totalCompanies": 3,
+    "skills": ["JavaScript", "Python", "React", "Node.js"],
+    "education": {
+        "degree": "Bachelor of Science in Computer Science",
+        "university": "Pondicherry University",
+        "graduationYear": 2018
+    },
+    "projects": [
+        {
+            "name": "Project A",
+            "description": "A web application for managing tasks.",
+            "technologies": ["React", "Node.js", "MongoDB"]
+        },
+        {
+            "name": "Project B",
+            "description": "A mobile app for tracking fitness activities.",
+            "technologies": ["React Native", "Firebase"]
+        },
+        {
+            "name": "Project C",
+            "description": "A backend service for processing payments.",
+            "technologies": ["Node.js", "Express", "MongoDB"]
+        }
+
+    ]
+}
