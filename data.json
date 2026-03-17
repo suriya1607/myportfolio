@@ -1,31 +1,123 @@
 {
     "name": "Suriya V",
     "role": "Software Developer",
+    "tagline": "Software Developer specialising in Laravel & PHP — building scalable web applications, RESTful APIs, and enterprise systems with",
     "experience": "4+",
     "totalProjects": 5,
     "totalCompanies": 3,
-    "skills": ["JavaScript", "Python", "React", "Node.js"],
-    "education": {
-        "degree": "Bachelor of Science in Computer Science",
-        "university": "Pondicherry University",
-        "graduationYear": 2018
+
+    "defaults": {
+        "theme": "forest",
+        "font": "DM Serif + DM Sans",
+        "darkMode": false
     },
+
+    "themes": {
+        "forest":  { "accent": "#2A5C45", "accent2": "#4A8C6A", "bg": "#F7F5F0", "surface": "#FFFFFF", "ink": "#1A1A1A" },
+        "ocean":   { "accent": "#1A5276", "accent2": "#2E86C1", "bg": "#F0F4F8", "surface": "#FFFFFF", "ink": "#1A1A1A" },
+        "crimson": { "accent": "#922B21", "accent2": "#C0392B", "bg": "#FDF6F0", "surface": "#FFFFFF", "ink": "#1A1A1A" },
+        "violet":  { "accent": "#6C3483", "accent2": "#9B59B6", "bg": "#F5F0FA", "surface": "#FFFFFF", "ink": "#1A1A1A" },
+        "slate":   { "accent": "#2C3E50", "accent2": "#566573", "bg": "#F2F3F4", "surface": "#FFFFFF", "ink": "#1A1A1A" },
+        "amber":   { "accent": "#B7770D", "accent2": "#D4AC0D", "bg": "#FDFAF0", "surface": "#FFFFFF", "ink": "#1A1A1A" }
+    },
+
+    "fonts": {
+        "DM Serif + DM Sans":    { "googleUrl": "", "serif": "'DM Serif Display', Georgia, serif", "sans": "'DM Sans', system-ui, sans-serif" },
+        "Playfair + Lato":       { "googleUrl": "Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;600", "serif": "'Playfair Display', Georgia, serif", "sans": "'Lato', system-ui, sans-serif" },
+        "Cormorant + Inter":     { "googleUrl": "Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600", "serif": "'Cormorant Garamond', Georgia, serif", "sans": "'Inter', system-ui, sans-serif" },
+        "Libre Baskerville":     { "googleUrl": "Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600", "serif": "'Libre Baskerville', Georgia, serif", "sans": "'Source Sans 3', system-ui, sans-serif" },
+        "Fraunces + Outfit":     { "googleUrl": "Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Outfit:wght@300;400;500;600", "serif": "'Fraunces', Georgia, serif", "sans": "'Outfit', system-ui, sans-serif" }
+    },
+
+    "contact": {
+        "email": "suriya1672001@gmail.com",
+        "phone": "+91 6382119284",
+        "linkedin": "https://www.linkedin.com/in/suriya-v-a99b25225/",
+        "github": "https://github.com/suriya1607"
+    },
+
+    "skills": [
+        { "icon": "⚙️",  "category": "Backend",   "name": "Laravel & PHP",        "tags": ["Laravel", "PHP", "MVC", "Eloquent ORM"] },
+        { "icon": "🎨",  "category": "Frontend",   "name": "jQuery & JS",          "tags": ["jQuery", "Vue.js", "Angular", "TypeScript", "HTML5", "CSS3"] },
+        { "icon": "🔌",  "category": "API",        "name": "REST API",             "tags": ["API Design", "Integration", "Postman", "Razorpay"] },
+        { "icon": "🗄️", "category": "Database",   "name": "MySQL",                "tags": ["MySQL", "Query Optimisation", "Schema Design"] },
+        { "icon": "💻",  "category": "Server",     "name": "Linux & Deployment",   "tags": ["Ubuntu", "Apache2", "Server Migration", "Deployment"] },
+        { "icon": "🔄",  "category": "Workflow",   "name": "Agile & Git",          "tags": ["Git", "Bitbucket", "Agile/Scrum", "JIRA"] }
+    ],
+
+    "experience_list": [
+        {
+            "current": true,
+            "period": "Feb 2025 — Present",
+            "role": "Software Developer",
+            "company": "Handletech Labs",
+            "location": "Chennai, India",
+            "points": [
+                "Building Drift AI, an in-house CRM product for lead management and agent retention — personally delivered 3–5 production modules.",
+                "Architected a globally configurable settings engine enabling admins to modify workflows dynamically without redeployment.",
+                "Managing code quality via Bitbucket with structured branching, pull requests, and peer reviews in Agile/Scrum sprints."
+            ]
+        },
+        {
+            "current": false,
+            "period": "May 2024 — Feb 2025",
+            "role": "Software Developer",
+            "company": "Twilight IT Solutions",
+            "location": "Puducherry, India",
+            "points": [
+                "Led full Laravel 5 to Laravel 10 migration for SSM, a supply chain system managing lakhs of records — zero downtime achieved.",
+                "Executed server migration on Ubuntu/Apache2, improving performance and scalability significantly.",
+                "Mentored junior developers and acted as primary client liaison for requirement gathering and delivery."
+            ]
+        },
+        {
+            "current": false,
+            "period": "Dec 2021 — Apr 2024",
+            "role": "Software Developer",
+            "company": "Askan Technology",
+            "location": "Puducherry, India",
+            "points": [
+                "Worked on B2C e-commerce and timesheet projects — built Laravel modules and integrated Razorpay payment gateway.",
+                "Collaborated with senior developers on OCI, an Oman Government tender and compliance portal with complex business logic."
+            ]
+        }
+    ],
+
     "projects": [
         {
-            "name": "Project A",
-            "description": "A web application for managing tasks.",
-            "technologies": ["React", "Node.js", "MongoDB"]
+            "number": "01", "title": "Drift AI — CRM & Lead Management",
+            "badge": null, "color": null,
+            "tech": ["Laravel", "jQuery", "MySQL", "REST API"],
+            "description": "In-house CRM product tracking the full customer journey — lead capture, agent assignment, activity monitoring, and retention reporting. Built a dynamic configuration engine cutting deployment overhead significantly.",
+            "github": null
         },
         {
-            "name": "Project B",
-            "description": "A mobile app for tracking fitness activities.",
-            "technologies": ["React Native", "Firebase"]
+            "number": "02", "title": "SSM — Retail Supply Chain System",
+            "badge": null, "color": null,
+            "tech": ["Laravel", "PHP", "MySQL", "Ubuntu"],
+            "description": "High-volume supply chain platform managing lakhs of records across the full order lifecycle. Led Laravel 5 to 10 migration and zero-downtime server upgrade, improving reliability and performance.",
+            "github": null
         },
         {
-            "name": "Project C",
-            "description": "A backend service for processing payments.",
-            "technologies": ["Node.js", "Express", "MongoDB"]
+            "number": "03", "title": "OCI — Oman Government Portal",
+            "badge": null, "color": null,
+            "tech": ["Laravel", "Angular", "REST API", "MySQL"],
+            "description": "Government-grade tender and compliance portal for Oman — handling full tender lifecycle, quarterly investigation planning, and inter-department communication with complete audit trails.",
+            "github": null
+        },
+        {
+            "number": "04", "title": "Digital Wall AI — Digital Business Card",
+            "badge": "Freelance", "color": "linear-gradient(135deg,#1a3a5c 0%,#2e6da4 100%)",
+            "tech": ["Laravel", "Vue.js", "REST API", "Mobile"],
+            "description": "Corporate digital business card platform — companies create branded digital cards shared via QR code scan. Recipients instantly get company and contact details. Works on both web and mobile app via API.",
+            "github": "https://github.com/digitalwallai-source/digitalwallai"
+        },
+        {
+            "number": "05", "title": "Mini CRM — Vue 3 & Laravel 12",
+            "badge": "Personal", "color": "linear-gradient(135deg,#3d2a5c 0%,#7c4da4 100%)",
+            "tech": ["Vue 3", "Laravel 12", "REST API", "MySQL"],
+            "description": "Personal project — a CRM built with Vue 3 frontend and Laravel 12 API backend featuring user authentication, dashboard analytics, contact management, and lead tracking. Currently in progress.",
+            "github": "https://github.com/suriya1607/minicrm"
         }
-
     ]
 }
