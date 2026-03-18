@@ -29,7 +29,6 @@ $(document).ready(function () {
                 r.style.setProperty('--surface', t.surface);
                 r.style.setProperty('--ink',     t.ink);
             }
-            // update active dot
             $('.tp-color').removeClass('active');
             $('.tp-color[data-theme="' + themeName + '"]').addClass('active');
         }
@@ -45,7 +44,6 @@ $(document).ready(function () {
             }
             document.documentElement.style.setProperty('--serif', f.serif);
             document.documentElement.style.setProperty('--sans',  f.sans);
-            // update active font btn
             $('.tp-font-btn').removeClass('active');
             $('.tp-font-btn[data-font="' + fontName + '"]').addClass('active');
         }
@@ -73,7 +71,6 @@ $(document).ready(function () {
             }
         }
 
-        // Load saved prefs OR use data.json defaults
         var savedTheme = localStorage.getItem('sv-theme') || data.defaults.theme;
         var savedFont  = localStorage.getItem('sv-font')  || data.defaults.font;
         var savedDark  = localStorage.getItem('sv-dark') !== null
@@ -85,7 +82,7 @@ $(document).ready(function () {
         if (savedDark) applyDark(true);
 
         // ════════════════════════════════════════════════════════
-        // 2. BUILD THEME PANEL
+        // 2. BUILD THEME PANEL ONLY (no trigger button — it's in navbar)
         // ════════════════════════════════════════════════════════
 
         var colorBtns = Object.keys(data.themes).map(function(key) {
@@ -97,6 +94,7 @@ $(document).ready(function () {
             return '<button class="tp-font-btn" data-font="' + key + '">' + key + '</button>';
         }).join('');
 
+        // Append ONLY the panel — trigger button is already in index.html navbar
         var panel =
             '<div id="theme-panel">' +
                 '<div id="tp-header"><span>&#9881;&nbsp; Theme Settings</span><button id="tp-close">&times;</button></div>' +
@@ -113,26 +111,17 @@ $(document).ready(function () {
                     '<div class="tp-fonts">' + fontBtns + '</div>' +
                     '<button id="tp-reset">Reset to Default</button>' +
                 '</div>' +
-            '</div>' +
-            '<span id="theme-trigger" title="settings"></span>';
+            '</div>';
 
         $('body').append(panel);
 
-        // Mark current active states
         $('.tp-color[data-theme="' + savedTheme + '"]').addClass('active');
         $('.tp-font-btn[data-font="' + savedFont + '"]').addClass('active');
 
-        // Panel styles
+        // Panel internal styles only — no trigger styles (handled in app.css)
         $('head').append('<style>' +
-            '#theme-trigger{' +
-                'position:fixed;bottom:20px;right:20px;width:12px;height:12px;' +
-                'border-radius:50%;cursor:pointer;z-index:9998;' +
-                'background:transparent;border:1.5px solid rgba(128,128,128,0.25);' +
-                'transition:all 0.2s;' +
-            '}' +
-            '#theme-trigger:hover{background:rgba(128,128,128,0.4);transform:scale(1.3)}' +
             '#theme-panel{' +
-                'position:fixed;bottom:48px;right:20px;width:300px;' +
+                'position:fixed;top:68px;right:24px;width:300px;' +
                 'background:var(--surface);border:1px solid var(--line,#E0DDD6);' +
                 'border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,0.15);' +
                 'z-index:9999;display:none;overflow:hidden;' +
@@ -193,36 +182,33 @@ $(document).ready(function () {
         // 3. PANEL EVENTS
         // ════════════════════════════════════════════════════════
 
-        // Open / close
-        $('#theme-trigger').on('click', function() {
+        $('#theme-trigger').on('click', function(e) {
+            e.stopPropagation();
             $('#theme-panel').fadeToggle(180);
         });
+
         $('#tp-close').on('click', function() {
             $('#theme-panel').fadeOut(180);
         });
 
-        // Dark mode toggle
         $('#tp-dark').on('change', function() {
             var on = $(this).is(':checked');
             applyDark(on);
             localStorage.setItem('sv-dark', on);
         });
 
-        // Color theme
         $(document).on('click', '.tp-color', function() {
             var t = $(this).data('theme');
             applyTheme(t);
             localStorage.setItem('sv-theme', t);
         });
 
-        // Font
         $(document).on('click', '.tp-font-btn', function() {
             var f = $(this).data('font');
             applyFont(f);
             localStorage.setItem('sv-font', f);
         });
 
-        // Reset
         $('#tp-reset').on('click', function() {
             localStorage.removeItem('sv-theme');
             localStorage.removeItem('sv-font');
@@ -233,7 +219,6 @@ $(document).ready(function () {
             $('#tp-dark').prop('checked', data.defaults.darkMode);
         });
 
-        // Close panel on outside click
         $(document).on('click', function(e) {
             if (!$(e.target).closest('#theme-panel, #theme-trigger').length) {
                 $('#theme-panel').fadeOut(180);
@@ -298,6 +283,20 @@ $(document).ready(function () {
 
     }).fail(function() {
         console.error('Failed to load data.json');
+    });
+
+    // ════════════════════════════════════════════════════════
+    // 5. HAMBURGER MENU
+    // ════════════════════════════════════════════════════════
+
+    $('#hamburger').on('click', function () {
+        $(this).toggleClass('open');
+        $('#nav-links').toggleClass('open');
+    });
+
+    $('#nav-links a').on('click', function () {
+        $('#hamburger').removeClass('open');
+        $('#nav-links').removeClass('open');
     });
 
 });
